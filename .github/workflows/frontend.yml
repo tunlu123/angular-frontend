@@ -1,0 +1,29 @@
+
+name: npm frontend ci/cd pipeline
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: repository
+        uses: actions/checkout@v3
+
+      - name: Install
+        run: npm install
+
+      - name: Build 
+        run: npm run build --prod
+
+      - name: packaging
+        run: 7z a angular-frontend.7z dist/*
+
+      - name: Deployment
+        run: echo 'Deploy war erfolgreich!'
