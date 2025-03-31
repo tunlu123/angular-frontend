@@ -26,4 +26,4 @@ jobs:
         run: 7z a angular-frontend.7z dist/*
 
       - name: Deployment
-        run: echo 'Deploy war erfolgreich!'
+        run: echo "Deploy war erfolgreich!"
